@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@400;600;800;900&family=Space+Mono:wght@400;700&display=swap');
+:root{--bg:#0b0a12;--card:#16121d;--cream:#f7f4e9;--gold:#f2c14e;--red:#e0182d;--blue:#5aa9ff}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--cream);font-family:'Kanit',Tahoma,sans-serif}
+a{color:inherit;text-decoration:none}
+.header{display:flex;justify-content:space-between;align-items:center;padding:22px 5%}
+.logo{font-weight:900;font-size:24px;letter-spacing:2px}
+.logo span{background:var(--red);padding:2px 8px;margin-left:4px}
+.navbar{display:flex;gap:26px;font:700 13px 'Space Mono',monospace}
+.navbar a:hover{color:var(--gold)}
+.ticker{background:var(--gold);color:var(--bg);overflow:hidden;white-space:nowrap;font:700 13px 'Space Mono',monospace;padding:9px 0}
+.ticker div{display:inline-block;animation:run 30s linear infinite;letter-spacing:3px}
+@keyframes run{to{transform:translateX(-50%)}}
+.hero{display:flex;align-items:flex-end;justify-content:space-between;gap:40px;padding:70px 5% 40px;
+  background:radial-gradient(circle at 85% 20%,rgba(224,24,45,.35),transparent 45%)}
+.hero h1{margin:0;font-size:clamp(60px,10vw,150px);line-height:.9;font-weight:900;letter-spacing:-4px}
+.hero h1 em{font-style:normal;color:var(--red)}
+.outline{color:transparent;-webkit-text-stroke:3px var(--cream)}
+.stats{display:grid;gap:12px;min-width:230px}
+.stats div{border-left:5px solid var(--gold);padding:4px 16px;background:rgba(255,255,255,.04)}
+.stats b{display:block;font-size:34px;font-weight:900;color:var(--gold)}
+.stats small{opacity:.75}
+.controls{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:20px 5% 30px}
+.controls span{font:700 13px 'Space Mono',monospace;opacity:.7;margin-right:6px}
+.controls button{cursor:pointer;background:transparent;color:var(--cream);border:2px solid var(--cream);border-radius:40px;padding:9px 22px;font:700 14px 'Kanit',sans-serif;transition:.2s}
+.controls button:hover,.controls button.selected{background:var(--red);border-color:var(--red)}
+#song-list{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;padding:0 5%}
+.song-card{background:var(--card);border-bottom:6px solid var(--accent);transition:transform .25s}
+.song-card:hover{transform:translateY(-8px)}
+.cover{position:relative;aspect-ratio:1;overflow:hidden;background:var(--accent)}
+.cover img{width:100%;height:100%;object-fit:cover;display:block}
+.num{position:absolute;right:14px;top:6px;font-size:68px;font-weight:900;line-height:1;color:transparent;-webkit-text-stroke:2px var(--cream);text-shadow:4px 4px 0 var(--accent)}
+.song-body{padding:18px 20px 22px}
+.song-body h3{margin:0;font-size:25px;font-weight:900}
+.album{margin:2px 0 10px;font-size:13px;opacity:.65}
+.desc{font-size:14px;line-height:1.6;margin:0 0 16px;min-height:44px}
+.meta{display:flex;justify-content:space-between;align-items:center}
+.genre{background:var(--accent);color:var(--bg);font:700 11px 'Space Mono',monospace;padding:4px 9px}
+.len{font:700 13px 'Space Mono',monospace}
+/* อันดับแรกในลำดับปัจจุบัน = การ์ดใหญ่เต็มแถว */
+.song-card:first-child{grid-column:1/-1;display:grid;grid-template-columns:minmax(260px,460px) 1fr;align-items:center;border-bottom:0;border-left:8px solid var(--accent)}
+.song-card:first-child .song-body{padding:30px 5%}
+.song-card:first-child h3{font-size:clamp(34px,5vw,64px);line-height:1}
+.song-card:first-child .desc{font-size:18px;max-width:520px}
+.song-card:first-child .num{font-size:100px}
+footer{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center;margin-top:80px;padding:40px 5%;background:#07060b;border-top:6px solid var(--red)}
+footer h2{margin:0;color:var(--gold)}
+footer p{font-size:13px;opacity:.75;margin:6px 0 0}
+@media(max-width:900px){#song-list{grid-template-columns:repeat(2,1fr)}.hero{flex-direction:column;align-items:flex-start}.stats{grid-template-columns:repeat(3,1fr);width:100%}}
+@media(max-width:600px){#song-list{grid-template-columns:1fr;gap:20px}.song-card:first-child{grid-template-columns:1fr}.stats{grid-template-columns:1fr}.navbar{gap:14px}}
